@@ -74,7 +74,7 @@ There are three types of storage space on the cluster:
 - Home space (`/u/$NetID` or `~`): 
   This is the home directory for each user. Since there is only a limit of 16GB, it should be used to store code only.
 - Project space (`/n/fs/vision-mix/$NetID`): 
-  This is the shared project directory for each user in our lab. It has a total limit of 11TB across all users. You can use it to store your conda environment, model checkpoints, and other large files. Please be considerate with your usage, as this space is shared by everyone. If you did not see this directory, contact David Yin by [email](yida.yin@princeton.edu) or [messenger](https://www.facebook.com/yida.yin.5?mibextid=wwXIfr&mibextid=wwXIfr) for help.
+  This is the shared project directory for each user in our lab. It has a total limit of 11TB across all users. You can use it to store your conda environment, model checkpoints, and other large files. Please be considerate with your usage, as this space is shared by everyone. Each user’s directory needs to be created manually. To request a new one, please contact David Yin by [email](yida.yin@princeton.edu) or [messenger](https://www.facebook.com/yida.yin.5?mibextid=wwXIfr&mibextid=wwXIfr) for help.
 - Scratch space (`/scratch/$NetID`): 
   This is the shared scratch directory on each node (i.e., not accessible from other nodes). It has a limit of 3.5TB across all users. You can use it to store any temporary files, such as pip install cache and huggingface cache. Note that this space is not backed up and rountinely purged, so you should not store any important files here.
 

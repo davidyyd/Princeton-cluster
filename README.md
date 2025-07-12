@@ -34,4 +34,4 @@ This guide is adapted from [here](https://github.com/PrincetonUniversity/multi_g
 
 ## Contact
 
-If you have any questions, please contact David Yin by [email](yida.yin@princeton.edu) or [messenger](https://www.facebook.com/yida.yin.5?mibextid=wwXIfr&mibextid=wwXIfr).
+If you have any questions in general about the setup or usage of the cluster, please contact David Yin by [email](yida.yin@princeton.edu) or [messenger](https://www.facebook.com/yida.yin.5?mibextid=wwXIfr&mibextid=wwXIfr).
