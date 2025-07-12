@@ -5,11 +5,11 @@
 We recommend using the remote explorer in Cursor / VSCode to establish SSH connection with the cluster. For Cursor, you can claim a free membership [here](https://www.cursor.com/pricing). Open the SSH configuration under the remote explorer.
 
 <p align="center">
-<img src="images/remote_explorer.png" width=50% height=100% 
+<img src="images/remote_explorer.png" width=50%
 class="center">
 </p>
 <p align="center">
-<img src="images/ssh_config.png" width=50% height=100% 
+<img src="images/ssh_config.png" width=50%
 class="center">
 </p>
 Copy and paste the following into the SSH configuration. Replace `$NetID` with the username for the account (everything before @). For example, if the account is yy8435@princeton.edu, then the NetID should be `yy8435`.  
@@ -39,41 +39,41 @@ Note that if we simply connect to `della` (not the visualization node), the logi
 
 
 <p align="center">
-<img src="images/command_palette.png" width=50% height=100% 
+<img src="images/command_palette.png" width=50%
 class="center">
 </p>
 <p align="center">
-<img src="images/della_host.png" width=50% height=100% 
+<img src="images/della_host.png" width=50%
 class="center">
 </p>
 
 It will ask you to type in the password for the account. 
 <p align="center">
-<img src="images/enter_password.png" width=50% height=100% 
+<img src="images/enter_password.png" width=50%
 class="center">
 </p>
 
 Then complete the two-factor authentication step.
 <p align="center">
-<img src="images/two_factor.png" width=50% height=100% 
+<img src="images/two_factor.png" width=50%
 class="center">
 </p>
 
 Check the output of SSH connection to select which two-factor login method. Here 1 is for Duo Push, 2 is for Phone Call, and 3 is for SMS Passcode.
 <p align="center">
-<img src="images/two_factor_output.png" width=50% height=100% 
+<img src="images/two_factor_output.png" width=50%
 class="center">
 </p>
 
 Finally click the Open Folder button.
 
 <p align="center">
-<img src="images/open_folder.png" width=50% height=100% 
+<img src="images/open_folder.png" width=50%
 class="center">
 </p>
 It will automatically set the path to the home directory, which should be /home/$NetID.
 <p align="center">
-<img src="images/della_path.png" width=50% height=100% 
+<img src="images/della_path.png" width=50%
 class="center">
 </p>
 

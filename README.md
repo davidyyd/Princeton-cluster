@@ -31,3 +31,7 @@ More Resources:
 ## Acknowledgement
 
 This guide is adapted from [here](https://github.com/PrincetonUniversity/multi_gpu_training). Their repository is more comprehensive and includes examples on using PyTorch Lightning, FSDP, and TensorFlow on the cluster.
+
+## Contact
+
+If you have any questions, please contact David Yin by [email](yida.yin@princeton.edu) or [messenger](https://www.facebook.com/yida.yin.5?mibextid=wwXIfr&mibextid=wwXIfr).
