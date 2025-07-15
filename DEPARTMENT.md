@@ -134,3 +134,20 @@ exit
 ```
 
 Note you can also use the login node to do small-scale testing. Since this is a shared space for all users, any work consuming too many CPU / GPU resources will be killed automatically.
+
+## Helpful Commands (Still in progress)
+
+There are some helpful commands for managing your jobs and files under ```/n/fs/vision-mix/helpful_commands```.
+To see the current status of all the nodes in the cluster, you can use the following command:
+
+```bash
+bash check_all_nodes.sh
+```
+
+It will print out the number of free CPUs, CPU memory usage, and the number of free GPUs for each of 32 nodes.
+
+```bash
+neu301     FreeCPUs= 40/104   FreeMem=375.0GiB/503.0GiB   FreeGPUs=1/8
+...
+neu332     FreeCPUs=  4/104   FreeCPUMem= 23.0GiB/503.0GiB   FreeGPUs=4/8
+```
