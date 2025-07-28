@@ -135,16 +135,115 @@ exit
 
 Note you can also use the login node to do small-scale testing. Since this is a shared space for all users, any work consuming too many CPU / GPU resources will be killed automatically.
 
-## Helpful Commands (Still in progress)
+## Cluster Commands
 
-There are some helpful commands for managing your jobs and files under ```/n/fs/vision-mix/helpful_commands```.
+Here we list some common commands for managing your job submissions and account usage.
+
+### Check status of jobs
+
+`squeue` is used to check the status of all your submitted jobs. You can check the status of your own jobs by:
+```bash
+squeue -u $NetID
+```
+
+It will print out the status of all your submitted jobs, including the job ID, partition, name, user, status, time, number of nodes, and node list:
+```bash
+  JOBID PARTITION           NAME     USER ST       TIME  NODES NODELIST(REASON)
+2251339       all classification   yy8435  R 1-04:11:33      4 (Priority)
+2251237       all           gpt2   yy8435  R 1-04:11:33      2 neu[329-330]
+```
+
+It is also possible to check the status of all jobs in the cluster by removing the `-u $NetID` option:
+```bash
+squeue
+```
+
+### Cancel a job
+`scancel` is used to cancel a job by the job ID. You can cancel a job by its ID:
+```bash
+scancel $job_id
+```
+It can also be used to cancel all your jobs at once without specifying the user:
+```bash
+scancel -u $NetID
+```
+
+### Check current GPU status in the cluster
+
+`gpudash` is a tool to check the GPU status across all nodes. 
+```bash
+gpudash
+```
+It will print out the gpu utilization for each gpu in the cluster during the last hour:
+```bash
+                                    NEURONIC-GPU UTILIZATION (Mon Jul 28)
+
+            3:10 AM       3:20 AM       3:30 AM       3:40 AM       3:50 AM       4:00 AM       4:10 AM
+neu301 0   yy8435:100    yy8435:99     yy8435:100    yy8435:100    yy8435:98     yy8435:100    yy8435:100
+       1   yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:99     yy8435:100
+       2   yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:98     yy8435:100    yy8435:100
+       3   yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100
+       4   yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100
+       5   yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:99     yy8435:100    yy8435:100
+       6   yy8435:99     yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100
+       7   yy8435:99     yy8435:100    yy8435:100    yy8435:100    yy8435:99     yy8435:100    yy8435:100
+...
+neu332 0   yy8435:100    yy8435:99     yy8435:100    yy8435:100    yy8435:98     yy8435:100    yy8435:100
+       1   yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:99     yy8435:100
+       2   yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:98     yy8435:100    yy8435:100
+       3   yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100
+       4   yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100
+       5   yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:99     yy8435:100    yy8435:100
+       6   yy8435:99     yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100    yy8435:100
+       7   yy8435:99     yy8435:100    yy8435:100    yy8435:100    yy8435:99     yy8435:100    yy8435:100
+            3:10 AM       3:20 AM       3:30 AM       3:40 AM       3:50 AM       4:00 AM       4:10 AM
+```
+
+### Check CPU and GPU hours
+
+`sreport` is used to check the CPU and GPU hours of your account. You need to specify the start and end date (in the format YYYY-MM-DD) for the report.
+```bash
+sreport -t Hours -T CPU,gres/gpu cluster AccountUtilizationByUser Users=$NetID Start=$start_date End=$end_date
+```
+It will print out the report as follows:
+```bash
+Usage reported in TRES Hours
+--------------------------------------------------------------------------------
+  Cluster         Account     Login     Proper Name      TRES Name     Used
+--------- --------------- --------- --------------- -------------- --------
+ neuronic            seas    yy8435        Yida Yin            cpu     8722
+ neuronic            seas    yy8435        Yida Yin       gres/gpu     1034
+```
+
+### Check priority of your account
+
+`sshare` is used to check the priority of your account.
+```bash
+sshare -u $NetID
+```
+It will print out something like this:
+```bash
+Account                    User  RawShares  NormShares    RawUsage  EffectvUsage  FairShare
+-------------------- ---------- ---------- ----------- ----------- ------------- ----------
+root                                          0.000000 6744067132527      1.000000
+ seas                                    1    0.500000 6744067132527      1.000000
+  seas                   yy8435          1    0.004762 37444021933      0.005552   0.109005
+```
+
+Only the last row is relevant. `NormShares` reflects your account’s allocated share of priority, equally divided among all users. `RawUsage` and `EffectiveUsage` represent your account's actual resource usage, decayed over time with a 14-day half-life. These values are less informative than those provided by `sreport`. `FairShare` indicates your current scheduling priority. It starts at 1.0 for new accounts and decreases as you consume more resources over time. It directly impacts how your jobs are prioritized in the queue.
+
+### Other helpful commands (still under development)
+
+We also create additional helpful commands for managing your jobs and files under ```/n/fs/vision-mix/helpful_commands```.
+
+
 To see the current status of all the nodes in the cluster, you can use the following command:
 
 ```bash
 bash check_all_nodes.sh
 ```
 
-It will print out the number of free CPUs, CPU memory usage, and the number of free GPUs for each of 32 nodes.
+It will print out the number of free CPUs, CPU memory usage, and the number of free GPUs for each of 32 nodes in neuronic. You can use this command to determine best resources for your jobs.
 
 ```bash
 neu301     FreeCPUs= 40/104   FreeMem=375.0GiB/503.0GiB   FreeGPUs=1/8
