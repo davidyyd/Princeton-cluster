@@ -135,9 +135,9 @@ exit
 
 Note you can also use the login node to do small-scale testing. Since this is a shared space for all users, any work consuming too many CPU / GPU resources will be killed automatically.
 
-## Cluster Commands
+## Common Commands
 
-Here we list some common commands for managing your job submissions and account usage.
+Here we list some common commands for managing your job submissions and account usage. If you have used SLURM before, you can skip this section.
 
 ### Check status of jobs
 
@@ -159,11 +159,11 @@ squeue
 ```
 
 ### Cancel a job
-`scancel` is used to cancel a job by the job ID. You can cancel a job by its ID:
+`scancel` is used to cancel job in the cluster. You can cancel a job by its job ID:
 ```bash
 scancel $job_id
 ```
-It can also be used to cancel all your jobs at once without specifying the user:
+It is also possible to cancel all your jobs at once by specifying the NetID:
 ```bash
 scancel -u $NetID
 ```
