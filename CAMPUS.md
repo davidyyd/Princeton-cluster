@@ -87,7 +87,10 @@ We first clone this repo and load an existing conda environment `torch-env`.
 git clone https://github.com/davidyyd/Princeton-cluster.git
 module purge
 module load anaconda3/2023.9
+source ~/.bashrc
+conda create -n torch-env python=3.12
 conda activate torch-env
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 ```
 
 Then download the MNIST dataset. 

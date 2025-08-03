@@ -5,6 +5,7 @@
 #SBATCH --cpus-per-task=8        # cpu-cores per task (>1 if multi-threaded tasks)
 #SBATCH --mem=32G                # total memory per node (4 GB per cpu-core is default)
 #SBATCH --gres=gpu:2             # number of allocated gpus per node
+#SBATCH --constraint=gpu80       # only run on nodes with 80GB GPUs (40GB flag could be assigned to MIG)
 #SBATCH --time=00:05:00          # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=begin        # send email when job begins
 #SBATCH --mail-type=end          # send email when job ends
