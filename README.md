@@ -1,3 +1,7 @@
+# Deprecated
+
+Please check out the Taiming Lu's guide [here](https://github.com/TaiMingLu/Della-Manual) on Della and my guide [here](https://github.com/davidyyd/Neuronic-Manual) on Neuronic. These guides are more comprehensive and include more information on the cluster setup and usage.
+
 # Cluster Manual
 
 ## Overview
